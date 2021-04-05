@@ -16,9 +16,22 @@
     <div class="container">
       <div class="row">
         <p class="jumbotron">
+          <!-- v-model permet de récupérer la valeur de l'input dans le state -->
           Login : <input type="text" v-model="user">
           Vous êtes connecté en tant que {{ user }}
         </p>
+      </div>
+
+      <h1 class="display-4">
+        Produits disponibles
+      </h1>
+      <div class="row">
+        <!-- v-for permet de boucler sur un tableau du state -->
+        <div class="col-3" v-for="product in products">
+          <p class="jumbotron">
+            {{ product }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
