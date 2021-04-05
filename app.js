@@ -3,11 +3,13 @@ var app = new Vue({
   data: {
     user: '',
     products: ['Pizza', 'Cheese', 'Tacos', 'Hamburger'],
-    commandes: []
+    orders: []
   },
   methods: {
-    commander: () => {
-      console.log('ok')
+    makeOrder: function(product) { // TODO: Comprendre pq en ES6 this = Document | ES5 this = Vue
+      // console.log(this)
+
+      this.orders.push(product)
     }
   }
 })
