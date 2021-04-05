@@ -26,17 +26,21 @@
       <h1 class="display-4" v-if="orders.length > 0">
         Commande
       </h1>
-      <ul>
-        <li v-for="order in orders">
-          {{ order }}
-        </li>
-      </ul>
+      <div class="row">
+        <product-card v-for="order in orders">
+
+        </product-card>
+      </div>
 
       <!-- v-bind : la directive permet de lier (ici une class) depuis le state -->
       <h1 v-bind:class="titleClass">
         Produits disponibles
       </h1>
       <div class="row">
+        <!-- On envoi avec v-on notre event personnalisé -->
+        <product-card v-for="product in products" v-bind:name="product" v-on:order_received="makeOrder">
+
+        </product-card>
         <!-- v-for permet de boucler sur un tableau du state -->
         <div class="col-3" v-for="product in products">
           <p class="jumbotron">

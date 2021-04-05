@@ -1,3 +1,27 @@
+// Création d'un composant
+// 1. Le nom du composant
+// 2. Object: 1. template html / 2. props
+Vue.component('product-card', {
+  template: `
+  <div class="col-3">
+    <p class="jumbotron">{{ name }}
+      <button v-on:click="sendOrder(name)">
+        Commander
+      </button>
+    </p>
+  </div>
+  `,
+  props: ['name'],
+  methods: {
+    sendOrder: function(product) {
+      // Cette fonction $emit va renvoyer vers le composant parent app
+      // 1. Le nom de l'évenement émit
+      // 2. Le payload de l'émission
+      this.$emit('order_received', product)
+    }
+  }
+})
+
 var app = new Vue({
   el: '#app',
   data: {
