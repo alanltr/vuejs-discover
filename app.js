@@ -3,7 +3,8 @@ var app = new Vue({
   data: {
     user: '',
     products: ['Pizza', 'Cheese', 'Tacos', 'Hamburger'],
-    orders: []
+    orders: [],
+    titleClass: 'display-4'
   },
   methods: {
     makeOrder: function(product) { // TODO: Comprendre pq en ES6 this = Document | ES5 this = Vue
