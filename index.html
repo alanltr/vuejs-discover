@@ -24,10 +24,12 @@
 
       <!-- v-if condition standard -->
       <h1 class="display-4" v-if="orders.length > 0">
-        Commande
+        Produits commandés
       </h1>
       <div class="row">
-        <product-card v-for="order in orders">
+        <!-- Avec v-bind, on peut injecter des props a notre composant, ici order a chaque itération -->
+        <!-- Le role va nous permettre de conditionner l'affichage au sein de latemplate -->
+        <product-card v-for="order in orders" v-bind:name="order" role="recap">
 
         </product-card>
       </div>
@@ -39,17 +41,10 @@
       <div class="row">
         <!-- On ecoute avec v-on notre event personnalisé et on lui donne une callback -->
         <!-- Avec v-bind, on peut injecter des props a notre composant, ici le product a chaque itération -->
-        <product-card v-for="product in products" v-bind:name="product" v-on:order_received="makeOrder">
+        <!-- Le role va nous permettre de conditionner l'affichage au sein de latemplate -->
+        <product-card v-for="product in products" v-bind:name="product" v-on:order_received="makeOrder" role="order">
 
         </product-card>
-        <!-- v-for permet de boucler sur un tableau du state -->
-        <div class="col-3" v-for="product in products">
-          <p class="jumbotron">
-            {{ product }}
-            <!-- v-on:click = ecouteur d'événement sur le btn -->
-            <button v-on:click="makeOrder(product)">Commander</button>
-          </p>
-        </div>
       </div>
     </div>
   </div>
