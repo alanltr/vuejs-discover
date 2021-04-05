@@ -37,7 +37,8 @@
         Produits disponibles
       </h1>
       <div class="row">
-        <!-- On envoi avec v-on notre event personnalisé -->
+        <!-- On ecoute avec v-on notre event personnalisé et on lui donne une callback -->
+        <!-- Avec v-bind, on peut injecter des props a notre composant, ici le product a chaque itération -->
         <product-card v-for="product in products" v-bind:name="product" v-on:order_received="makeOrder">
 
         </product-card>
